@@ -5,7 +5,6 @@ class Node:
         self.arr = [0] * 20
         self.top = 0
 
-
 def shannon(num: int, num_of_symbols: int, list_of_nodes: list[Node]):
     pack1 = 0
     pack2 = 0
@@ -69,7 +68,6 @@ def sortByProbability(num_of_symbols: int, list_of_nodes: list[Node]) -> None:
                 list_of_nodes[i + 1].symbol = temp.symbol
 
 
-# function to display shannon codes
 def display(number_of_symbols, nodes_list: list[Node]):
     print("\n\n\n\tSymbol\tProbability\tCode", end='')
     for i in range(number_of_symbols - 1, -1, -1):
@@ -94,22 +92,17 @@ def main():
         nodes[i].probability = float(symb_probabilities[i])
         total = total + nodes[i].probability
 
-        # checking max probability
         if total > 1:
             print("Invalid. Enter new values")
             exit()
 
-    # Sorting the symbols based on
-    # their probability or frequency
     sortByProbability(num_of_symbols, nodes)
 
     for i in range(num_of_symbols):
         nodes[i].top = -1
 
-    # Find the shannon code
     shannon(0, num_of_symbols - 1, nodes)
 
-    # Display the codes
     display(num_of_symbols, nodes)
 
 
