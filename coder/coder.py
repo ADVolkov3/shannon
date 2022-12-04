@@ -68,10 +68,8 @@ def sortByProbability(num_of_symbols: int, list_of_nodes: list[Node]) -> None:
                 list_of_nodes[i + 1].symbol = temp.symbol
 
 
-def display(number_of_symbols, nodes_list: list[Node]):
-    print("\n\n\n\tSymbol\tProbability\tCode", end='')
+def display(number_of_symbols, nodes_list: list[Node]) -> None:
     for i in range(number_of_symbols - 1, -1, -1):
-        print("\n\t", nodes_list[i].symbol, "\t\t", nodes_list[i].probability, "\t", end='')
         for j in range(nodes_list[i].top + 1):
             print(nodes_list[i].arr[j], end='')
 
@@ -84,8 +82,6 @@ def main():
     num_of_symbols = len(symbols)
     nodes = [Node() for _ in range(num_of_symbols)]
     for i in range(num_of_symbols):
-        print("Enter symbol", i + 1, " : ", end="")
-        print(symbols[i])
         nodes[i].symbol += symbols[i]
 
     for i in range(num_of_symbols):
