@@ -1,5 +1,7 @@
+import zlib
+
 class Node:
-    def __init__(self) -> None:
+    def __init__(self):
         self.symbol = ''
         self.probability = 0.0
         self.arr = [0] * 20
@@ -69,9 +71,12 @@ def sortByProbability(num_of_symbols: int, list_of_nodes: list[Node]) -> None:
 
 
 def display(number_of_symbols, nodes_list: list[Node]) -> None:
+    res: str = ""
     for i in range(number_of_symbols - 1, -1, -1):
         for j in range(nodes_list[i].top + 1):
-            print(nodes_list[i].arr[j], end='')
+            res += str(nodes_list[i].arr[j])
+    with open("result.txt", "wb") as f:
+        f.write(zlib.compress(res.encode("utf-8")))
 
 def main():
     total = 0
