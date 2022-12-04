@@ -26,6 +26,7 @@ def shannon(num: int, num_of_symbols: int, list_of_nodes: list[Node]):
         if diff1 < 0:
             diff1 = diff1 * -1
         j = 2
+        k = 0
         while j != num_of_symbols - num + 1:
             k = num_of_symbols - j
             pack1 = pack2 = 0
@@ -75,6 +76,7 @@ def display(number_of_symbols, nodes_list: list[Node]) -> None:
     for i in range(number_of_symbols - 1, -1, -1):
         for j in range(nodes_list[i].top + 1):
             res += str(nodes_list[i].arr[j])
+    print(res)
     with open("result.txt", "wb") as f:
         f.write(zlib.compress(res.encode("utf-8")))
 
